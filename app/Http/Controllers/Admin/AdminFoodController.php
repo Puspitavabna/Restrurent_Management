@@ -28,10 +28,20 @@ class AdminFoodController extends Controller
         return view ('admin.Food.create', compact('categories','users'));
     }
     public function store(Request $request){
+        $slug = strtolower($request['food_name']);
+        $slug = str_replace(' ', '-', $slug);
         $food = new Food();
         $food->food_name = $request->food_name;
+        $food->slug = $slug;
         $food->price = $request->price;
         $food->category_id = $request->category_id;
+
+        if ($food_image = $request->file('image')) {
+            $newName = str_random(10) . time() . '.' . $food_image->getClientOriginalExtension();
+            $food_image->move(Food::FOOD_IMAGE_UPLOAD_PATH, $newName);
+            $food->image = $newName;
+        }
+
         $food->save();
 
 

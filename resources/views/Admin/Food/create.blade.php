@@ -14,7 +14,11 @@
                             <label class="control-label " for="name" >Price</label>
                             <input class="form-control" name="price" type="number" placeholder="Title" required />
                         </div>
-
+                        <div class="form-group col-sm-6">
+                            <label class="control-label " for="image" >Image</label>
+                            <input class="form-control" type="file" name="image" id="fileToUpload">
+                            <small>Only supports jpeg,jpg,png (max size 500KB)</small>
+                        </div>
                         <div class="form-group category-box">
                             <div>Select category here:</div>
                             <select name="category_id" class="form-control category_select" data-value="1">

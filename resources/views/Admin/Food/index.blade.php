@@ -14,6 +14,7 @@
                                 <th>Foods </th>
                                 <th>Category_name</th>
                                 <th>Price</th>
+                                <th>Image</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -24,6 +25,7 @@
                             <td>{{ $food->id }}</td>
                             <td>{{ $food->food_name}}</td>
                             <td>{{ $food->category->name}}</td>
+                            <td>{{ $food->image}}</td>
                             <td>${{ $food->price}}</td>
                             <td width="5%">
                                 <a href="{{ route('admin_food.edit', $food->id) }}" target="_blank" class="btn-sm btn-warning">Edit</a>

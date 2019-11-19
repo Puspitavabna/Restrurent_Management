@@ -37,7 +37,10 @@ Route::post('/user/sign_up/', [
     'uses' => 'UserController@postRegister',
     'as' => 'user.post.register'
 ]);
-
+Route::get('/food/{category}/{category_slug}', [
+    'uses' => 'FoodController@show',
+    'as' => 'food.show'
+]);
 Route::group(['middleware' => 'auth' , 'prefix' => 'admin'] , function() {
     Route::get('/' , [
         'uses' => 'Admin\AdminController@index',
