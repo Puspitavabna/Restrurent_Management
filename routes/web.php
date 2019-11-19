@@ -38,3 +38,29 @@ Route::post('/user/sign_up/', [
     'as' => 'user.post.register'
 ]);
 
+Route::group(['middleware' => 'auth' , 'prefix' => 'admin'] , function() {
+    Route::get('/' , [
+        'uses' => 'Admin\AdminController@index',
+        'as' => 'admin.index'
+   ]);
+    Route::resource('/admin_food','Admin\AdminFoodController');
+//    Route::post('/logout' , [
+//        'uses' => 'Admin\AdminController@getLogout',
+//        'as' => 'admin.logout'
+//    ]);
+//
+//    Route::get('/meal_report' , [
+//        'uses' => 'Admin\AdminMealReportController@index',
+//        'as' => 'admin.meal_report.index'
+//    ]);
+//
+//    Route::get('/menu' , [
+//        'uses' => 'Admin\AdminMealOrderController@menu',
+//        'as' => 'admin.menu.index'
+//    ]);
+//
+//    Route::resource('meal_order', 'Admin\AdminMealOrderController', ['as' => 'admin']);
+//    Route::resource('bazar_cost', 'Admin\AdminBazarCostController', ['as' => 'admin']);
+//
+//    Route::resource('meal_payment', 'Admin\AdminMealPaymentController', ['as' => 'admin']);
+});
