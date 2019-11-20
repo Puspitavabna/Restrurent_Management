@@ -51,6 +51,7 @@ Route::group(['middleware' => 'auth' , 'prefix' => 'admin'] , function() {
         'as' => 'admin.index'
    ]);
     Route::resource('/admin_food','Admin\AdminFoodController');
+    Route::resource('/admin_category','Admin\AdminCategoryController');
 //    Route::post('/logout' , [
 //        'uses' => 'Admin\AdminController@getLogout',
 //        'as' => 'admin.logout'

@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div>
-                    Here you will get tutorial. <a href="{{ route('admin_food.create') }}">Create Food</a>
+                    Here you will get tutorial. <a href="{{ route('admin_category.create') }}">Create category</a>
 
                 </div>
                 <div class="alert alert-success">
@@ -11,25 +11,21 @@
                         <thead>
                             <tr>
                                 <th>No.</th>
-                                <th>Foods </th>
-                                <th>Category_name</th>
+                                <th>categorys </th>
                                 <th>Image</th>
-                                <th>Price</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                     <tbody>
-                    @foreach($foods as $key => $food)
+                    @foreach($categories as $key => $category)
 
                         <tr>
-                            <td>{{ $food->id }}</td>
-                            <td>{{ $food->food_name}}</td>
-                            <td>{{ $food->category->name}}</td>
-                            <td>{{ $food->image}}</td>
-                            <td>{{ $food->price}}</td>
+                            <td>{{ $category->id }}</td>
+                            <td>{{ $category->name}}</td>
+                            <td>{{ $category->category_image}}</td>
                             <td width="5%">
-                                <a href="{{ route('admin_food.edit', $food->id) }}" target="_blank" class="btn-sm btn-warning">Edit</a>
-                              <form method="POST" action="{{ route('admin_food.destroy', $food->id) }}">
+                                <a href="{{ route('admin_category.edit', $category->id) }}" target="_blank" class="btn-sm btn-warning">Edit</a>
+                              <form method="POST" action="{{ route('admin_category.destroy', $category->id) }}">
                                     <input name="_method" type="hidden" value="DELETE">
                                     <input type="submit" value="Delete" class="btn-sm btn-danger">
                                 </form>
