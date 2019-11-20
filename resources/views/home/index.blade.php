@@ -17,21 +17,26 @@
         <div class="row">
             <div class="col-md-10">
                 <div class="row">
-                    @foreach($foods as $key => $food)
-                        <div class="col-md-6 nopadding">
-                            <div class="box-style">
-                                <a href="{{ $food->food_url }}" class="custom-card">
-                                    <h4 class="tutorial-title">{{ $key + 1 }}. {{$food->food_name}}</h4>
-                                </a>
-
-                                <hr>
-                                <div class="float-left">
-                                    <span class="btn-xs btn-info"><i class="fa fa-tags"></i> {{$food->category->name}}</span>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div>
+                    @foreach($categories as $key => $category)
+                        <div class="card-body">
+                            <a href="{{ route('food.category', $category->category_slug) }}">{{$category->name}}</a>
                         </div>
                     @endforeach
+                    {{--@foreach($foods as $key => $food)--}}
+                        {{--<div class="col-md-6 nopadding">--}}
+                            {{--<div class="box-style">--}}
+                                {{--<a href="{{ $food->food_url }}" class="custom-card">--}}
+                                    {{--<h4 class="tutorial-title">{{ $key + 1 }}. {{$food->food_name}}</h4>--}}
+                                {{--</a>--}}
+
+                                {{--<hr>--}}
+                                {{--<div class="float-left">--}}
+                                    {{--<a href="" ><span class="btn-xs btn-info"><i class="fa fa-tags"></i> {{$food->category->name}}</span></a>--}}
+                                {{--</div>--}}
+                                {{--<div class="clearfix"></div>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                    {{--@endforeach--}}
                 </div>
             </div>
             <div class="clearfix"></div>

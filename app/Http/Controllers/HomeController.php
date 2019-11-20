@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Food;
+use App\Models\Category;
 
 class HomeController extends Controller
 {
@@ -23,7 +24,14 @@ class HomeController extends Controller
      */
     public function index()
     {
+
+        $categories = Category::all();
         $foods = Food::all();
-        return view('home.index', compact('foods'));
+        return view('home.index', compact('foods','categories'));
+    }
+    public function  food_category($slug){
+        $foods = Food::where('slug',$slug)->first();
+        $food_category = Food::where('category_id',$foods->category_id)->get();
+        return view('food.show',compact('foods','food_category'));
     }
 }

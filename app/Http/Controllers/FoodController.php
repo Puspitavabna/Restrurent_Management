@@ -8,9 +8,10 @@ use App\Models\Food;
 class FoodController extends Controller
 {
     public function show($category, $slug){
-        $food = Food::all();
-        $category_tutorials = Food::where('category_id', $food->category_id)->get();
-        return view('food.show', compact('food'));
+        $foods = Food::all();
+        $food_categories = Food::where('category_id',$foods)->get();
+        return view('food.show',compact('foods','food_categories'));
     }
+
 
 }
